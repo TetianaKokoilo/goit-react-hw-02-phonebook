@@ -37,7 +37,9 @@ export class App extends Component {
 
 
   render() {
-    const contacts = this.state.contacts;
+    const normalisedFilter = this.state.filter.toLowerCase();
+    const contacts = this.state.contacts.filter(contact =>
+      contact.name.toLocaleLowerCase().includes(normalisedFilter));
     return (
       <div>
         <h1>Phonebook</h1>
