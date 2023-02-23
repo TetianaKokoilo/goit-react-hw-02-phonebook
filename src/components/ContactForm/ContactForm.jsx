@@ -25,7 +25,8 @@ export class ContactForm extends Component {
     this.setState({ ...INITIAL_STATE });
   };
 
-  render() {
+    render() {
+        const { name, number } = this.state;
     return (
       <form onSubmit={this.handleSubmit}>
         <h2>Name</h2>
@@ -37,6 +38,7 @@ export class ContactForm extends Component {
           required
           id={this.loginInputName}
           onChange={this.handleChange}
+          value={name}
         />
         <h2>Number</h2>
         <input
@@ -47,6 +49,7 @@ export class ContactForm extends Component {
           required
           id={this.loginInputnumber}
           onChange={this.handleChange}
+          value={number}
         />
         <button type="submit">Add Contacts</button>
       </form>
