@@ -7,29 +7,27 @@ export class ContactForm extends Component {
     number: '',
   };
 
-  handleChange = e => {
-    // console.log(e.target);
-    // console.log(e.target.name);
-    // console.log(e.target.value);
-    const {name, value} = e.target;
-    this.setState({[name]: value});
-  }
-
-  hanldeNameChange = e => {
-    this.setState({ name: e.target.value });
-  };
-
-  hanldeNumberChange = e => {
-    this.setState({number: e.target.value})
-  }
-
   loginInputName = nanoid();
   loginInputnumber = nanoid();
 
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.onSubmit(this.state);
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ name: '', number: '' });
+  };
 
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <h2>Name</h2>
         <input
           type="text"
