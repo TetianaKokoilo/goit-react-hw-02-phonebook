@@ -15,10 +15,11 @@ export class App extends Component {
     filter: '',
   };
 
-  addContactformSubmit = data => {
-    console.log(data);
+  addContactformSubmit = ({ name, number }) => {
     const contact = {
       id: nanoid(),
+      name,
+      number,
     };
     this.setState(({ contacts }) => ({
       contacts: [contact, ...contacts],
@@ -33,13 +34,18 @@ export class App extends Component {
 
   changeFilter = e => {
     this.setState({ filter: e.target.value });
-  }
+  };
 
+  getFilterName = () => {
+    const { filter, contacts } = this.state;
+    const normalisedFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalisedFilter)
+    );
+  };
 
   render() {
-    const normalisedFilter = this.state.filter.toLowerCase();
-    const contacts = this.state.contacts.filter(contact =>
-      contact.name.toLocaleLowerCase().includes(normalisedFilter));
+    const contacts = this.getFilterName();
     return (
       <div>
         <h1>Phonebook</h1>
