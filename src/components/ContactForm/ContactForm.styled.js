@@ -43,6 +43,7 @@ export const StyledFormButton = styled.button`
   font-size: 17px;
   line-height: 20px;
   border: none;
+  cursor: pointer;
 
   &:hover,
   &:focus {

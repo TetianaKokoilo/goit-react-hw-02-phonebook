@@ -27,6 +27,7 @@ export const StyledContactButton = styled.button`
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
   border-radius: 30px;
   border: 0.5px solid #dddddd;
+  cursor: pointer;
   &:hover,
   &:focus {
     background: #405df8;
