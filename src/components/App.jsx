@@ -16,14 +16,23 @@ export class App extends Component {
   };
 
   addContactformSubmit = ({ name, number }) => {
+    
     const contact = {
       id: nanoid(),
       name,
       number,
     };
-    this.setState(({ contacts }) => ({
+
+    let prevCont = this.state.contacts.map(({ name }) =>
+      name)
+    if (prevCont.includes(name)) {
+      alert(`${name} is already in contacts`);
+      return
+    } else {
+        this.setState(({ contacts }) => ({
       contacts: [contact, ...contacts],
     }));
+    }
   };
 
   deleteContact = contactId => {
