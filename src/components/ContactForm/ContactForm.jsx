@@ -1,11 +1,11 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-
+const INITIAL_STATE = {
+  name: '',
+  number: '',
+};
 export class ContactForm extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
+  state = { ...INITIAL_STATE };
 
   loginInputName = nanoid();
   loginInputnumber = nanoid();
@@ -17,12 +17,12 @@ export class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.onSubmit(this.state);
+    this.props.onSubmit({ ...this.state });
     this.reset();
   };
 
   reset = () => {
-    this.setState({ name: '', number: '' });
+    this.setState({ ...INITIAL_STATE });
   };
 
   render() {

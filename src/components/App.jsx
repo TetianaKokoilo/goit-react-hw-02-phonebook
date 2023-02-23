@@ -4,11 +4,11 @@ import { ContactForm } from './ContactForm/ContactForm';
 export class App extends Component {
   state = {
     contacts: [],
-  }
+  };
 
   formSubmit = data => {
     console.log(data);
-  }
+  };
   render() {
     return (
       <div>
