@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 export const Filter = ({ filter }) => {
   return (
     <label>
@@ -6,3 +8,7 @@ export const Filter = ({ filter }) => {
     </label>
   );
 };
+
+Filter.propTypes = {
+  filter: PropTypes.func.isRequired,
+}
